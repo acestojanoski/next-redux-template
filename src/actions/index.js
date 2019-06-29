@@ -1,5 +1,5 @@
-import api from '../api';
+import apiActions from '../api/api-actions';
 
 export default {
-    ...api
+    ...apiActions
 };

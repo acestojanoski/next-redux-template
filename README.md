@@ -35,5 +35,6 @@ This is a template for React/Next.js application with Redux.
 *   redux
 *   redux-devtools-extension
 *   redux-thunk
+*   node-sass
 *   @zeit/next-css
 *   @zeit/next-sass

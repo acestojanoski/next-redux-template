@@ -4,7 +4,7 @@ import {
     apiCallStarted,
     apiCallFinished,
     apiCallFailed
-} from './api-actions';
+} from './api-status-actions';
 
 const apiCall = (stateKey, request, queryParameter, queryString) => {
     if (!request) {
