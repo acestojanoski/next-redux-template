@@ -4,6 +4,7 @@ import App, { Container } from "next/app";
 import withRedux from "next-redux-wrapper";
 import configureStore from "../store/configure-store";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/global.scss';
 
 class ExampleApp extends App {
 

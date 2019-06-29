@@ -32,7 +32,7 @@ class HomePage extends Component {
         }
 
         return (
-            <Container style={{ marginTop: '5%' }}>
+            <Container className="container">
                 <Row>
                     <Col>
                         <Alert variant="success">Next redux template</Alert>
@@ -40,11 +40,22 @@ class HomePage extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Button variant="success" onClick={this.handleLoadList}>Load List</Button>
-                        <Button style={{marginLeft: '10px'}} variant="warning" onClick={this.handleReset}>Reset</Button>
+                        <Button
+                            variant="success"
+                            onClick={this.handleLoadList}
+                        >
+                            Load List
+                        </Button>
+                        <Button
+                            className=" not-first-button-in-a-row"
+                            variant="warning"
+                            onClick={this.handleReset}
+                        >
+                            Reset
+                        </Button>
                     </Col>
                 </Row>
-                <Row style={{marginTop: '5%', marginBottom: '5%'}}>
+                <Row className="todos-list">
                     <Col>
                         <ListGroup>
                             {todos}
