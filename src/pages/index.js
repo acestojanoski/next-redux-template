@@ -12,7 +12,13 @@ class HomePage extends Component {
 
     handleLoadList = () => {
         const { actions } = this.props;
-        actions.apiCall('todos');
+        actions.apiCall('todos')
+            .then(response => {
+                console.log('Response: ', response);
+            })
+            .catch(error => {
+                console.log('Error response: ', error);
+            });
     }
 
     render() {

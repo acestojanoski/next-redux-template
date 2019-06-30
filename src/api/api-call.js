@@ -10,7 +10,7 @@ const apiCall = (stateKey, request, queryParameter, queryString) => {
     if (!request) {
         request = {};
     }
-    
+
     return (dispatch) => {
         if (
             !apiConfig[stateKey] ||
@@ -47,17 +47,21 @@ const apiCall = (stateKey, request, queryParameter, queryString) => {
 
         dispatch(apiCallStarted(stateKey, request));
 
-        axios({
-            url: `${url}${queryParameter ? '/' + queryParameter : ''}${queryString ? '?' + queryString : ''}`,
-            method,
-            data: request,
-        })
-            .then(response => {
-                dispatch(apiCallFinished(stateKey, response));
+        return new Promise((resolve, reject) => {
+            axios({
+                url: `${url}${queryParameter ? '/' + queryParameter : ''}${queryString ? '?' + queryString : ''}`,
+                method,
+                data: request,
             })
-            .catch(error => {
-                dispatch(apiCallFailed(stateKey, error));
-            });
+                .then(response => {
+                    dispatch(apiCallFinished(stateKey, response));
+                    resolve(response);
+                })
+                .catch(error => {
+                    dispatch(apiCallFailed(stateKey, error));
+                    reject(error);
+                });
+        });
     }
 }
 
