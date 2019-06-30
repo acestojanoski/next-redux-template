@@ -1,14 +1,12 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import initialState from '../store/initial-state';
-import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
+import initialState from '../store/initial-state';
+import rootReducer from '../reducers/root-reducer';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 
 const configureStore = () => {
-    const combinedReducers = combineReducers(rootReducer);
-
     const store = createStore(
-        combinedReducers,
+        rootReducer,
         initialState,
         composeWithDevTools(
             applyMiddleware(thunk)

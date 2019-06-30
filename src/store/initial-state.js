@@ -1,9 +1,7 @@
 import { fromJS } from 'immutable';
 
 const initialState = {
-    exampleApp: fromJS({
-        apiCalls: {},
-    }),
+    apiCalls: {},
 };
 
-export default initialState;
+export default fromJS(initialState);

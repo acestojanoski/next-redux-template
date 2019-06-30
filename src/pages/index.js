@@ -16,9 +16,9 @@ class HomePage extends Component {
     }
 
     render() {
-        const { exampleApp } = this.props;
+        const { state } = this.props;
 
-        let todos = exampleApp.getIn(['apiCalls', 'todos', 'data']);
+        let todos = state.getIn(['apiCalls', 'todos', 'data']);
 
         if (todos) {
             todos = todos.map(todo => (
@@ -68,9 +68,7 @@ class HomePage extends Component {
 };
 
 const mapStateToProps = (state) => {
-    return {
-        exampleApp: state.exampleApp
-    }
+    return { state }
 };
 
 const mapDispatchToProps = (dispatch) => {
