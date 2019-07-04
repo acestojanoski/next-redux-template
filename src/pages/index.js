@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Container, Row, Col, Button, Alert, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Col, Button, Alert, ListGroup, ListGroupItem, FormControl } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import actions from '../actions';
 import { connect } from 'react-redux';
@@ -19,6 +19,11 @@ class HomePage extends Component {
             .catch(error => {
                 console.log('Error response: ', error);
             });
+    }
+
+    handleInputChange = (event) => {
+        const { actions } = this.props;
+        actions.setValue('form.inputField', event.target.value);
     }
 
     render() {
@@ -59,6 +64,29 @@ class HomePage extends Component {
                         >
                             Reset
                         </Button>
+                    </Col>
+                    <Col>
+                        <FormControl
+                            type="text"
+                            placeholder="Enter something"
+                            onChange={this.handleInputChange}
+                            value={state.getIn(['form', 'inputField'])}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Alert
+                            variant="info"
+                            style={{
+                                marginTop: '2%',
+                                display: state.getIn(['form', 'inputField']) === ''
+                                    ? 'none'
+                                    : ''
+                            }}
+                        >
+                            {state.getIn(['form', 'inputField'])}
+                        </Alert>
                     </Col>
                 </Row>
                 <Row className="todos-list">

@@ -1,1 +1,1 @@
-export const SOME_ACTION = 'SOME_ACTION';
+export const SET_VALUE = 'SET_VALUE';
