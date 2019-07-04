@@ -3,8 +3,8 @@
  * @returns {boolean} true or false (boolean)
  */
 
-export const isArray = (value) => {
-    if (Array.isArray(value) || value instanceof Array) {
+export const isArray = value => {
+    if (Object.prototype.toString.call(value) === '[object Array]') {
         return true;
     }
     return false;

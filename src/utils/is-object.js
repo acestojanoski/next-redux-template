@@ -3,8 +3,8 @@
  * @returns {boolean} true or false (boolean)
  */
 
-export const isObject = (value) => {
-    if (value instanceof Object || typeof value === 'object') {
+export const isObject = value => {
+    if (Object.prototype.toString.call(value) === '[object Object]') {
         return true;
     }
     return false;
