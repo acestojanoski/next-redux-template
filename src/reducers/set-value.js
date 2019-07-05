@@ -1,9 +1,14 @@
 import { isObject } from '../utils/is-object';
 import { isArray } from '../utils/is-array';
+import { isString } from '../utils/is-string';
 import { fromJS } from 'immutable';
 
 export const SET_VALUE = (state, action) => {
     if (!action.stateKey) {
+        return state;
+    }
+
+    if (!isString(action.stateKey)) {
         return state;
     }
 
